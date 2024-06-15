@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aera: AI-Powered Email Designing Tool
 
-## Getting Started
+__Aera__ aims to streamline the process of creating beautifully designed and functional email templates using AI. By leveraging the power of AI, users can generate email content based on simple prompts and customize the layout through an intuitive drag-and-drop interface and handy sidebar.
 
-First, run the development server:
+## Why This Project?
+Creating email templates can be a tedious and time-consuming task, especially for those without extensive design or coding experience. This project was inspired by the need to simplify and automate the email creation process, allowing users to focus more on the content and less on the formatting and design.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Idea Source
+The idea for this tool came from a blog post titled "[Creating e-mail templates is painful, isn't it?](https://peerlist.io/blog/weekly-spotlight/week-20)" while participating in the [AI-Hackathon](https://peerlist.io/hackathons/peerlist-roadmap-hackathon) by [Peerlist](https://github.com/PeerlistHQ) x [Roadmap.sh](https://github.com/roadmapsh). The post highlighted the challenges and frustrations many people face when designing emails. This sparked the idea to create a tool that uses AI to alleviate these pains, making email template creation quick, easy, and accessible to everyone.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- **AI-Powered Content Generation**: Generate email content based on user prompts.
+- **JSON-based Content Structure**: The AI provides a structured JSON response defining the email content.
+- **Drag-and-Drop Interface**: Customize the layout with a user-friendly drag-and-drop interface.
+- **Real-time Preview**: View the email design in real-time as you make changes.
+- **Styling Options**: Customize the styles of different elements (font, color, size).
+- **Export Options**: Export the final email as HTML or send it directly via an email API.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+1. Enter a prompt in the input field (e.g., "**email for account verification with verification link**").
+2. Click the "**Generate Email**" button to generate the email content.
+3. Customize the layout using the **drag-and-drop** interface.
+4. **Preview** the email.
+5. **Export** the final email as HTML or send it directly via an email API.
