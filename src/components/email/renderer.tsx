@@ -4,21 +4,28 @@ import { EmailContentProps } from './types';
 const Renderer = ({ email, index }: { email: EmailContentProps, index: number }) => {
     switch (email.type) {
         case "paragraph":
-            return <p key={index} className={`leading-relaxed my-6 outline-none`} spellCheck="false">{email.text}</p>;
+            return <p key={index} style={{
+                fontSize: "15px",
+                lineHeight: "1.65",
+                marginTop: "1.5rem",
+                marginBottom: "1.5rem",
+                color: "#1f2937",
+                fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+            }} spellCheck="false">{email.text}</p>;
         case "profile":
             return (
-                <a href={email?.link ? email?.link : "#"} target={email?.link && "_blank"} key={index} className='w-fit leading-none space-x-3 flex items-center my-6'>
+                <a href={email?.link ? email?.link : "#"} target={email?.link && "_blank"} key={index} className='w-fit leading-none space-x-3 flex items-center'>
                     <figure>
-                        <img src={email.imgSrc} className='size-10 rounded-md shadow-md' />
+                        <img src={email.imgSrc} className='max-h-10 rounded shadow-md' />
                     </figure>
-                    {email.name && <span className='text-xl font-space-grotesk font-bold'>{email.name}</span>}
+                    {email.name && <span className='text-xl font-lora font-bold text-gray-800'>{email.name}</span>}
                 </a>
             );
         case "button":
             return (
                 <div key={index} className='my-6'>
-                    <a href={email.link}>
-                        <button className='bg-blue-600 text-white leading-none py-3 px-5 rounded-md'>{email.text}</button>
+                    <a href={email.link} target={email.link && "_blank"}>
+                        <button className='bg-blue-500 font-medium text-white leading-none py-3 px-4 rounded-md text-[14px]'>{email.text}</button>
                     </a>
                 </div>
             );
@@ -30,7 +37,7 @@ const Renderer = ({ email, index }: { email: EmailContentProps, index: number })
             );
         case "h1":
             return (
-                <h1 className='text-3xl font-bold mt-8 mb-4' contentEditable>{email.text}</h1>
+                <h1 className='text-[27px] font-bold mt-8 mb-4' contentEditable>{email.text}</h1>
             );
         case "h2":
             return (

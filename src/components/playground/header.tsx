@@ -20,7 +20,7 @@ const Header = () => {
     };
 
     return (
-        <div className="border-b h-fit p-6 space-y-6">
+        <div className="h-fit p-6 space-y-6">
             <h1 className='text-2xl leading-normal font-bold text-gray-800'>{header.subject}</h1>
             <div className="transition-all duration-700 ease-linear overflow-clip text-sm">
                 <div className='grid grid-cols-[0.2fr_1fr] items-center leading-none'>

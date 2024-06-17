@@ -6,9 +6,7 @@ const Field = ({ emails }: any) => {
         <>
             {
                 emails?.map((email: any, index: any) => (
-                    <div className='group' key={index}>
-                        <Renderer email={email} index={index} />
-                    </div>
+                    <Renderer email={email} index={index} key={index} />
                 ))
             }
         </>

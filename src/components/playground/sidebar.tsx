@@ -4,6 +4,7 @@ import { IconAlignJustified, IconFileExport, IconH1, IconH2, IconH3, IconInputAi
 import React, { ReactNode } from 'react';
 import { convert_react_to_vanilla } from '../email/converter';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 interface ListItemProps {
     icon: ReactNode;
@@ -26,15 +27,20 @@ const ListItem: React.FC<ListItemProps> = ({ icon, text, className, onClick }) =
 
 const Sidebar = ({ email }: any) => {
 
-    const handleCopyBtn = (email2) => {
-        const sad = convert_react_to_vanilla(email2)
+    const handleCopyBtn = (email_to_copy: []) => {
+        const sad = convert_react_to_vanilla(email_to_copy)
         navigator.clipboard.writeText(sad)
         toast.info('Email Design Copied to your Clipboard')
     }
 
     return (
-        <aside className='px-6 py-7'>
-            <div>
+        <aside>
+            <div className='flex items-end p-6'>
+                <Link href="https://github.com/ashokasec/aera" target='_blank'><p className='font-playfair-fr-moderne text-[34px] font-medium leading-none h-10'>aera</p></Link>
+                <p className='text-sm mt-2 pb-[2px] ml-2'><span className='text-gray-500'>by</span> <Link href="https://x.com/ashokasec" target='_blank' className='underline text-blue-500 font-medium'>@ashokasec</Link></p>
+            </div>
+            <hr className='bg-gradient-to-r from-gray-300' />
+            <div className='p-6'>
                 <span className='font-semibold text-xl'>Entities</span>
                 <ul className="grid grid-cols-3 gap-2 py-4 text-sm">
                     <>
@@ -53,7 +59,7 @@ const Sidebar = ({ email }: any) => {
                     </>
                 </ul>
             </div>
-            <div className='mt-2'>
+            <div className='mt-2 p-6'>
                 <span className='font-semibold text-xl'>More</span>
                 <ul className="grid py-4 text-sm space-y-2">
                     <li className='bg-gray-50/50 cursor-pointer hover:border-gray-300 hover:shadow-sm hover:bg-gray-100/60 transition-all rounded-md p-3 leading-none text-gray-900 font-medium border flex items-center' onClick={() => handleCopyBtn(email)}><span className='mr-3'><IconFileExport size={18} /></span>Copy Design</li>

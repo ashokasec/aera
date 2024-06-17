@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap&family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +16,7 @@
     background-color: rgb(225, 225, 225);
   }
 
-  *{
+  * {
     font-family: 'Inter', sans-serif;
   }
 

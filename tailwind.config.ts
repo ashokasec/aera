@@ -14,7 +14,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        "playfair-fr-moderne": ["Playwrite FR Moderne", "cursive"]
+        "playfair-fr-moderne": ["Playwrite FR Moderne", "cursive"],
+        "lora": ["Lora", "serif"]
       }
     },
   },
