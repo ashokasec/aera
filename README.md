@@ -4,6 +4,8 @@ __Aera__ aims to streamline the process of creating beautifully designed and fun
 
 > Note: This is my side project, so I'm not overly focused on it, but I am aiming to complete it.
 
+![Aera Dashboard](https://raw.githubusercontent.com/ashokasec/aera/main/src/assets/aera.jpg)
+
 ## Why This Project?
 Creating email templates can be a tedious and time-consuming task, especially for those without extensive design or coding experience. This project was inspired by the need to simplify and automate the email creation process, allowing users to focus more on the content and less on the formatting and design.
 
