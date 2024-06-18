@@ -7,21 +7,62 @@ import { toast } from 'sonner';
 import Link from 'next/link';
 
 interface ListItemProps {
+    entity_name: string,
     icon: ReactNode;
     text: string;
     className?: string;
     onClick?: () => void;
+    handleDragStart: (e: React.DragEvent<HTMLLIElement>, entity: { entity_name: string }) => void;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ icon, text, className, onClick }) => {
+const entitiesData = [
+    {
+        entity_name: "paragraph",
+        icon: <IconAlignJustified size={18} />,
+        text: "Paragraph"
+    },
+    {
+        entity_name: "image",
+        icon: <IconPhoto size={18} />,
+        text: "Image"
+    },
+    {
+        entity_name: "link",
+        icon: <IconLink size={18} />,
+        text: "Link"
+    },
+    {
+        entity_name: "separator",
+        icon: <IconSeparatorHorizontal size={18} />,
+        text: "Separator"
+    },
+    {
+        entity_name: "signature",
+        icon: <IconSignature size={18} />,
+        text: "Signature"
+    },
+    {
+        entity_name: "button",
+        icon: <IconInputAi size={18} />,
+        text: "Button"
+    },
+    {
+        entity_name: "profile",
+        icon: <IconStar size={18} />,
+        text: "Profile"
+    }
+
+]
+
+const ListItem: React.FC<ListItemProps> = ({ entity_name, icon, text, className, onClick, handleDragStart }) => {
     return (
-        <li className={`col-span-3 border-gray-300 p-1 items-center space-x-3 font-medium shadow-sm bg-gray-50/50 cursor-pointer hover:border-gray-400 hover:shadow-md hover:bg-gray-100/60 transition-all rounded-md leading-none text-gray-900 border flex items-center'><span className='mr-3'><IconFileExport size={18} /></span>Export Design</li>
-                    <li className='bg-gray-50/50 cursor-pointer hover:border-gray-300 hover:shadow-sm hover:bg-gray-100/60 transition-all ${className || ''}`} onClick={onClick} draggable>
+        <li className={`col-span-3 border-gray-300 p-1 items-center space-x-3 font-medium shadow-sm bg-gray-50/50 cursor-grab active:cursor-grabbing hover:border-gray-400 hover:shadow-md hover:bg-gray-100/60 transition-all rounded-md leading-none text-gray-900 border flex ${className || ''}`} onClick={onClick} draggable="true" onDragStart={(e) => handleDragStart(e, { entity_name })}
+        >
             <span className='border p-2 aspect-square rounded-md border-gray-300 bg-gray-100'>
                 {icon}
             </span>
             <span>{text}</span>
-        </li>
+        </li >
     );
 }
 
@@ -31,6 +72,10 @@ const Sidebar = ({ email }: any) => {
         const sad = convert_react_to_vanilla(email_to_copy)
         navigator.clipboard.writeText(sad)
         toast.info('Email Design Copied to your Clipboard')
+    }
+
+    const handleDragStart = (e: React.DragEvent<HTMLLIElement>, entity: { entity_name: string }) => {
+        e.dataTransfer.setData("entityName", entity.entity_name);
     }
 
     return (
@@ -48,15 +93,11 @@ const Sidebar = ({ email }: any) => {
                         <li className="col-span-1 border border-gray-300 rounded-md grid place-content-center py-2"><IconH2 /></li>
                         <li className="col-span-1 border border-gray-300 rounded-md grid place-content-center py-2"><IconH3 /></li>
                     </>
-                    <>
-                        <ListItem icon={<IconPhoto size={18} />} text="Paragraph" />
-                        <ListItem icon={<IconPhoto size={18} />} text="Image" />
-                        <ListItem icon={<IconLink size={18} />} text="Link" />
-                        <ListItem icon={<IconSeparatorHorizontal size={18} />} text="Separator" />
-                        <ListItem icon={<IconSignature size={18} />} text="Signature" />
-                        <ListItem icon={<IconInputAi size={18} />} text="Button" />
-                        <ListItem icon={<IconStar size={18} />} text="Profile" />
-                    </>
+                    {
+                        entitiesData.map(({ entity_name, icon, text }) => (
+                            <ListItem icon={icon} text={text} key={entity_name} entity_name={entity_name} handleDragStart={handleDragStart} />
+                        ))
+                    }
                 </ul>
             </div>
             <div className='mt-2 p-6'>
